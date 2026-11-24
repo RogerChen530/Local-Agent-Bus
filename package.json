@@ -1,0 +1,10 @@
+{
+  "name": "local-agent-bus-opencourse",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node checks/contract.mjs && node checks/behavior.mjs && python3 checks/links.py && node checks/contrast.mjs"
+  }
+}

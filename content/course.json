@@ -1,0 +1,1651 @@
+{
+  "version": "0.1.0",
+  "language": "zh-TW",
+  "modules": [
+    {
+      "id": "m01",
+      "title": "兩個程序互相傳話",
+      "artifact": "Pipe Hello 與程序圖",
+      "hours": 3,
+      "goal": "畫出兩個獨立程序、stdin／stdout 與父子關係，完成一次請求與回覆。",
+      "prerequisites": [
+        "prepare"
+      ],
+      "state": "published",
+      "lesson_ids": [
+        "m01-l01",
+        "m01-l02",
+        "m01-l03"
+      ],
+      "lab_id": "l01",
+      "lab_goal": "兩支 Python 檔案，加上正常、失敗與逾時輸出，以及標示 PID 與資料方向的程序圖。",
+      "checkpoint": "a",
+      "outcome": "LO01",
+      "phase": "W1"
+    },
+    {
+      "id": "m02",
+      "title": "Socket、Bytes 與 Framing",
+      "artifact": "TCP JSON 訊息通道",
+      "hours": 5,
+      "goal": "兩個可獨立啟動的程序以 TCP 交換 JSON，正確處理分段與合併。",
+      "prerequisites": [
+        "m01"
+      ],
+      "state": "planned",
+      "lesson_ids": [
+        "m02-l01",
+        "m02-l02",
+        "m02-l03"
+      ],
+      "lab_id": "l02",
+      "lab_goal": "重組分段、合併及含繁中的 TCP 訊息。",
+      "checkpoint": "a",
+      "outcome": "LO02",
+      "phase": "W2"
+    },
+    {
+      "id": "m03",
+      "title": "JSON-RPC 與錯誤",
+      "artifact": "可追蹤的 RPC endpoint",
+      "hours": 5,
+      "goal": "將一則請求對應到正確回應，分清楚不同失敗層次。",
+      "prerequisites": [
+        "m02"
+      ],
+      "state": "planned",
+      "lesson_ids": [
+        "m03-l01",
+        "m03-l02",
+        "m03-l03"
+      ],
+      "lab_id": "l03",
+      "lab_goal": "分辨 RPC 錯誤、通知與晚到回覆。",
+      "checkpoint": "a",
+      "outcome": "LO03",
+      "phase": "W2"
+    },
+    {
+      "id": "m04",
+      "title": "第一個 Message Broker",
+      "artifact": "同步註冊與路由",
+      "hours": 5,
+      "goal": "讓三個以上程序透過中央服務找人與交換任務。",
+      "prerequisites": [
+        "m03"
+      ],
+      "state": "planned",
+      "lesson_ids": [
+        "m04-l01",
+        "m04-l02",
+        "m04-l03"
+      ],
+      "lab_id": "l04",
+      "lab_goal": "以兩個 FakeWorker 練習註冊、設定路由與有限佇列。",
+      "checkpoint": "b",
+      "outcome": "LO04",
+      "phase": "W2"
+    },
+    {
+      "id": "m05",
+      "title": "Async I/O 與受限併發",
+      "artifact": "非同步 Broker",
+      "hours": 6,
+      "goal": "保留介面，讓多個連線與工作在等待期間持續前進。",
+      "prerequisites": [
+        "m04"
+      ],
+      "state": "planned",
+      "lesson_ids": [
+        "m05-l01",
+        "m05-l02",
+        "m05-l03"
+      ],
+      "lab_id": "l05",
+      "lab_goal": "用可控的延遲與容量觀察背壓、取消及關閉。",
+      "checkpoint": "b",
+      "outcome": "LO05",
+      "phase": "W2"
+    },
+    {
+      "id": "m06",
+      "title": "Adapter 與 Ollama",
+      "artifact": "Mock／模型的共同契約",
+      "hours": 6,
+      "goal": "區分模型推論與 Agent 迴圈，將服務差異留在 Adapter。",
+      "prerequisites": [
+        "m05"
+      ],
+      "state": "planned",
+      "lesson_ids": [
+        "m06-l01",
+        "m06-l02",
+        "m06-l03"
+      ],
+      "lab_id": "l06",
+      "lab_goal": "先驗證 FakeAdapter 契約，再選用 Ollama 或官方格式的離線紀錄。",
+      "checkpoint": "c",
+      "outcome": "LO06",
+      "phase": "W3"
+    },
+    {
+      "id": "m07",
+      "title": "Codex／Claude Code 接入",
+      "artifact": "受管理的 Coding Agent Adapter",
+      "hours": 6,
+      "goal": "啟動與管理 Coding Agent 的程序，處理多種事件、權限要求與取消。",
+      "prerequisites": [
+        "m06"
+      ],
+      "state": "planned",
+      "lesson_ids": [
+        "m07-l01",
+        "m07-l02",
+        "m07-l03"
+      ],
+      "lab_id": "l07",
+      "lab_goal": "對練習資料夾提出唯讀任務，比較兩家介面的事件與權限。",
+      "checkpoint": "c",
+      "outcome": "LO07",
+      "phase": "W3"
+    },
+    {
+      "id": "m08",
+      "title": "Session、SQLite 與復原",
+      "artifact": "持久化與狀態機",
+      "hours": 6,
+      "goal": "分清不同識別碼與狀態的所有者，重啟後能解釋哪些事做過、哪些未知。",
+      "prerequisites": [
+        "m07"
+      ],
+      "state": "planned",
+      "lesson_ids": [
+        "m08-l01",
+        "m08-l02",
+        "m08-l03"
+      ],
+      "lab_id": "l08",
+      "lab_goal": "儲存工作階段、任務、嘗試與事件，在復原時保留未知狀態。",
+      "checkpoint": "c",
+      "outcome": "LO08",
+      "phase": "W3"
+    },
+    {
+      "id": "m09",
+      "title": "MCP 工具與資料",
+      "artifact": "有範圍的唯讀 MCP 整合",
+      "hours": 5,
+      "goal": "以正式 MCP SDK 接入有範圍的資料工具，辨認協定版本與信任邊界。",
+      "prerequisites": [
+        "m08"
+      ],
+      "state": "planned",
+      "lesson_ids": [
+        "m09-l01",
+        "m09-l02",
+        "m09-l03"
+      ],
+      "lab_id": "l09",
+      "lab_goal": "針對練習資料建立唯讀 MCP 工具，保存成功與拒絕的 trace。",
+      "checkpoint": "d",
+      "outcome": "LO09",
+      "phase": "W4"
+    },
+    {
+      "id": "m10",
+      "title": "ACP／A2A 與 Gateway",
+      "artifact": "協定選擇與最小轉接",
+      "hours": 6,
+      "goal": "根據互動關係選介面，能指出 gateway 轉換時遺失的資訊。",
+      "prerequisites": [
+        "m09"
+      ],
+      "state": "planned",
+      "lesson_ids": [
+        "m10-l01",
+        "m10-l02",
+        "m10-l03"
+      ],
+      "lab_id": "l10",
+      "lab_goal": "做最小 ACP 或 A2A gateway，說明轉接的語意差異。",
+      "checkpoint": "d",
+      "outcome": "LO10",
+      "phase": "W4"
+    },
+    {
+      "id": "m11",
+      "title": "工作流程與多 Agent 協作",
+      "artifact": "有終止條件的審查流程",
+      "hours": 6,
+      "goal": "把協作寫成可測試的工作流程，限制輪數、資源與寫入衝突。",
+      "prerequisites": [
+        "m10"
+      ],
+      "state": "planned",
+      "lesson_ids": [
+        "m11-l01",
+        "m11-l02",
+        "m11-l03"
+      ],
+      "lab_id": "l11",
+      "lab_goal": "以規則安排工作、審查、有限修正及客觀驗證。",
+      "checkpoint": "e",
+      "outcome": "LO11",
+      "phase": "W4"
+    },
+    {
+      "id": "m12",
+      "title": "Local Agent Bus Capstone",
+      "artifact": "整合、故障演練與展示",
+      "hours": 8,
+      "goal": "整合系統、注入故障，讓另一位學習者能重現結果。",
+      "prerequisites": [
+        "m11",
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "state": "planned",
+      "lesson_ids": [
+        "m12-l01",
+        "m12-l02",
+        "m12-l03"
+      ],
+      "lab_id": "l12",
+      "lab_goal": "以測試與故障演練交付可重現的本機 Agent Bus。",
+      "checkpoint": "e",
+      "outcome": "LO12",
+      "phase": "W4"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "m01-l01",
+      "module_id": "m01",
+      "number": "01.1",
+      "language": "zh-TW",
+      "title": "變數為什麼不能直接共用？",
+      "prerequisites": [
+        "prepare"
+      ],
+      "outcomes": [
+        "LO01"
+      ],
+      "scope": "Program 與 process、PID、各自的位址空間；共享記憶體是需要明確機制的例外",
+      "task": "兩個程序分別修改同名變數，預測另一邊會看到什麼",
+      "lab_id": "l01",
+      "status": "published",
+      "execution_mode": "local",
+      "sources": [
+        "PY08",
+        "PY02"
+      ],
+      "code_revision": "v0.1.0",
+      "source_checked_at": "2026-11-24",
+      "code_tested_at": "2026-11-24",
+      "verified_environments": [
+        "macOS 26.5.2 arm64 / Python 3.12.11",
+        "macOS 26.5.2 arm64 / Python 3.14.6"
+      ],
+      "protocol_versions": [],
+      "estimated_read_minutes": 20,
+      "estimated_lab_minutes": 20
+    },
+    {
+      "id": "m01-l02",
+      "module_id": "m01",
+      "number": "01.2",
+      "language": "zh-TW",
+      "title": "把文字送進另一個程序",
+      "prerequisites": [
+        "m01-l01"
+      ],
+      "outcomes": [
+        "LO01"
+      ],
+      "scope": "subprocess.run、stdin／stdout／stderr、文字編碼、exit code",
+      "task": "a.py 啟動 b.py，傳入問題並讀回回答",
+      "lab_id": "l01",
+      "status": "published",
+      "execution_mode": "local",
+      "sources": [
+        "PY02",
+        "PY09",
+        "PY10"
+      ],
+      "code_revision": "v0.1.0",
+      "source_checked_at": "2026-11-24",
+      "code_tested_at": "2026-11-24",
+      "verified_environments": [
+        "macOS 26.5.2 arm64 / Python 3.12.11",
+        "macOS 26.5.2 arm64 / Python 3.14.6"
+      ],
+      "protocol_versions": [],
+      "estimated_read_minutes": 25,
+      "estimated_lab_minutes": 25
+    },
+    {
+      "id": "m01-l03",
+      "module_id": "m01",
+      "number": "01.3",
+      "language": "zh-TW",
+      "title": "收不到回覆時怎麼辦？",
+      "prerequisites": [
+        "m01-l02"
+      ],
+      "outcomes": [
+        "LO01"
+      ],
+      "scope": "EOF、timeout、buffer 與 flush；stdout 是資料通道，stderr 用於診斷",
+      "task": "讓 B 提前失敗或延遲，A 顯示可理解的失敗原因",
+      "lab_id": "l01",
+      "status": "published",
+      "execution_mode": "local",
+      "sources": [
+        "PY02",
+        "PY09",
+        "PY10"
+      ],
+      "code_revision": "v0.1.0",
+      "source_checked_at": "2026-11-24",
+      "code_tested_at": "2026-11-24",
+      "verified_environments": [
+        "macOS 26.5.2 arm64 / Python 3.12.11",
+        "macOS 26.5.2 arm64 / Python 3.14.6"
+      ],
+      "protocol_versions": [],
+      "estimated_read_minutes": 25,
+      "estimated_lab_minutes": 35
+    },
+    {
+      "id": "m02-l01",
+      "module_id": "m02",
+      "number": "02.1",
+      "language": "zh-TW",
+      "title": "不由 A 啟動 B，還能通訊嗎？",
+      "prerequisites": [
+        "m01-l03"
+      ],
+      "outcomes": [
+        "LO02"
+      ],
+      "scope": "Server／client、bind／listen／accept／connect、loopback 與 port",
+      "task": "開兩個終端機，連到 127.0.0.1 的練習 server",
+      "lab_id": "l02",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [
+        "PY03"
+      ],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m02-l02",
+      "module_id": "m02",
+      "number": "02.2",
+      "language": "zh-TW",
+      "title": "中文為什麼變成 bytes？",
+      "prerequisites": [
+        "m02-l01"
+      ],
+      "outcomes": [
+        "LO02"
+      ],
+      "scope": "UTF-8 編碼、bytes 與 str、JSON serialization",
+      "task": "顯示同一則中文的文字、位元組長度與 JSON 表示",
+      "lab_id": "l02",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [
+        "PY03"
+      ],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m02-l03",
+      "module_id": "m02",
+      "number": "02.3",
+      "language": "zh-TW",
+      "title": "一次 recv 為什麼不是一則訊息？",
+      "prerequisites": [
+        "m02-l02"
+      ],
+      "outcomes": [
+        "LO02"
+      ],
+      "scope": "TCP byte stream、buffer、delimiter／length prefix 比較",
+      "task": "實作 UTF-8、單行 JSON、換行結尾的 framing",
+      "lab_id": "l02",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [
+        "PY03"
+      ],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m03-l01",
+      "module_id": "m03",
+      "number": "03.1",
+      "language": "zh-TW",
+      "title": "回來的答案屬於哪個問題？",
+      "prerequisites": [
+        "m02-l03"
+      ],
+      "outcomes": [
+        "LO03"
+      ],
+      "scope": "jsonrpc、method、params、id；request／response／notification",
+      "task": "用兩個不同 ID 發送 ping、echo",
+      "lab_id": "l03",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [
+        "RPC01"
+      ],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m03-l02",
+      "module_id": "m03",
+      "number": "03.2",
+      "language": "zh-TW",
+      "title": "錯誤也需要共同格式",
+      "prerequisites": [
+        "m03-l01"
+      ],
+      "outcomes": [
+        "LO03"
+      ],
+      "scope": "Parse error、invalid request、method not found、invalid params；result 與 error",
+      "task": "為未知方法回覆標準錯誤，通知不回應",
+      "lab_id": "l03",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [
+        "RPC01"
+      ],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m03-l03",
+      "module_id": "m03",
+      "number": "03.3",
+      "language": "zh-TW",
+      "title": "等不到與晚到的答案",
+      "prerequisites": [
+        "m03-l02"
+      ],
+      "outcomes": [
+        "LO03"
+      ],
+      "scope": "Pending requests、deadline、connection failure、late response",
+      "task": "到期移除 pending，記錄遲到回應而不完成另一個請求",
+      "lab_id": "l03",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [
+        "RPC01"
+      ],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m04-l01",
+      "module_id": "m04",
+      "number": "04.1",
+      "language": "zh-TW",
+      "title": "如果每個 Agent 都直接連所有人？",
+      "prerequisites": [
+        "m03-l03"
+      ],
+      "outcomes": [
+        "LO04"
+      ],
+      "scope": "Point-to-point 與 broker、註冊、名稱與能力",
+      "task": "維護 FakeWorker A／B 的 registry",
+      "lab_id": "l04",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [
+        "RPC01"
+      ],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m04-l02",
+      "module_id": "m04",
+      "number": "04.2",
+      "language": "zh-TW",
+      "title": "訊息該送到誰？",
+      "prerequisites": [
+        "m04-l01"
+      ],
+      "outcomes": [
+        "LO04"
+      ],
+      "scope": "Routing table、direct send、收件人離線、最小有界佇列",
+      "task": "實作 agents.list 與 tasks.submit",
+      "lab_id": "l04",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [
+        "RPC01"
+      ],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m04-l03",
+      "module_id": "m04",
+      "number": "04.3",
+      "language": "zh-TW",
+      "title": "收到等於完成嗎？",
+      "prerequisites": [
+        "m04-l02"
+      ],
+      "outcomes": [
+        "LO04"
+      ],
+      "scope": "Accepted／queued／running／completed；Broker 的單點與故障",
+      "task": "提交後立即取得 task ID，再查任務結果",
+      "lab_id": "l04",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [
+        "RPC01"
+      ],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m05-l01",
+      "module_id": "m05",
+      "number": "05.1",
+      "language": "zh-TW",
+      "title": "一個慢工作為何卡住全部？",
+      "prerequisites": [
+        "m04-l03"
+      ],
+      "outcomes": [
+        "LO05"
+      ],
+      "scope": "Event loop、coroutine、await、task；併發與 CPU 平行運算",
+      "task": "比較順序 await 與同時排程的差異",
+      "lab_id": "l05",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [
+        "PY04",
+        "PY05"
+      ],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m05-l02",
+      "module_id": "m05",
+      "number": "05.2",
+      "language": "zh-TW",
+      "title": "大家一起送工作會怎樣？",
+      "prerequisites": [
+        "m05-l01"
+      ],
+      "outcomes": [
+        "LO05"
+      ],
+      "scope": "Async streams、bounded queue、worker pool、semaphore、backpressure",
+      "task": "限制同時執行數與待辦容量",
+      "lab_id": "l05",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [
+        "PY04",
+        "PY05"
+      ],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m05-l03",
+      "module_id": "m05",
+      "number": "05.3",
+      "language": "zh-TW",
+      "title": "按停止之後到底停了什麼？",
+      "prerequisites": [
+        "m05-l02"
+      ],
+      "outcomes": [
+        "LO05"
+      ],
+      "scope": "Timeout、cancellation、finally、TaskGroup、graceful shutdown",
+      "task": "停止收新工作、收尾 task、關閉 writer",
+      "lab_id": "l05",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [
+        "PY04",
+        "PY05"
+      ],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m06-l01",
+      "module_id": "m06",
+      "number": "06.1",
+      "language": "zh-TW",
+      "title": "換模型是否要重寫 Broker？",
+      "prerequisites": [
+        "m05-l03"
+      ],
+      "outcomes": [
+        "LO06"
+      ],
+      "scope": "Adapter contract、capability、標準事件、Mock／fixture",
+      "task": "先用 FakeAdapter 通過共用契約",
+      "lab_id": "l06",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [
+        "OL01",
+        "OL02",
+        "OL03",
+        "OL04"
+      ],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m06-l02",
+      "module_id": "m06",
+      "number": "06.2",
+      "language": "zh-TW",
+      "title": "HTTP 串流與部分結果",
+      "prerequisites": [
+        "m06-l01"
+      ],
+      "outcomes": [
+        "LO06"
+      ],
+      "scope": "Ollama chat、messages history、REST streaming、完成／斷線",
+      "task": "將文字片段轉成 delta，把終止事件轉成結果",
+      "lab_id": "l06",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [
+        "OL01",
+        "OL02",
+        "OL03",
+        "OL04"
+      ],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m06-l03",
+      "module_id": "m06",
+      "number": "06.3",
+      "language": "zh-TW",
+      "title": "模型說要用工具，誰來執行？",
+      "prerequisites": [
+        "m06-l02"
+      ],
+      "outcomes": [
+        "LO06"
+      ],
+      "scope": "Tool-call schema、受允許工具、結果回填、有上限的 agent loop",
+      "task": "只提供一個不讀寫任意檔案的數值工具",
+      "lab_id": "l06",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [
+        "OL01",
+        "OL02",
+        "OL03",
+        "OL04"
+      ],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m07-l01",
+      "module_id": "m07",
+      "number": "07.1",
+      "language": "zh-TW",
+      "title": "模型 API 與 Agent 介面差在哪？",
+      "prerequisites": [
+        "m06-l03"
+      ],
+      "outcomes": [
+        "LO07"
+      ],
+      "scope": "Agent 自帶工具迴圈與工作環境；subprocess ownership、cwd、env",
+      "task": "為練習建立專用 workspace 與 capability manifest",
+      "lab_id": "l07",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [
+        "PY06",
+        "CX01",
+        "CX02",
+        "CL01",
+        "CL02",
+        "CL03",
+        "CL04",
+        "CL06",
+        "CL07"
+      ],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m07-l02",
+      "module_id": "m07",
+      "number": "07.2",
+      "language": "zh-TW",
+      "title": "Codex：單次任務到雙向控制",
+      "prerequisites": [
+        "m07-l01"
+      ],
+      "outcomes": [
+        "LO07"
+      ],
+      "scope": "先 codex exec／JSON 事件；選修 App Server 的 thread／turn",
+      "task": "將官方事件映射成課程事件，不把文字出現「完成」當成功",
+      "lab_id": "l07",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [
+        "PY06",
+        "CX01",
+        "CX02",
+        "CL01",
+        "CL02",
+        "CL03",
+        "CL04",
+        "CL06",
+        "CL07"
+      ],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m07-l03",
+      "module_id": "m07",
+      "number": "07.3",
+      "language": "zh-TW",
+      "title": "Claude Code：CLI 到 Python SDK",
+      "prerequisites": [
+        "m07-l02"
+      ],
+      "outcomes": [
+        "LO07"
+      ],
+      "scope": "先 claude -p／JSON；再認識 Agent SDK、permission request、resume",
+      "task": "保存 session ID，將需要核准顯示成等待狀態",
+      "lab_id": "l07",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [
+        "PY06",
+        "CX01",
+        "CX02",
+        "CL01",
+        "CL02",
+        "CL03",
+        "CL04",
+        "CL06",
+        "CL07"
+      ],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m08-l01",
+      "module_id": "m08",
+      "number": "08.1",
+      "language": "zh-TW",
+      "title": "兩個任務為什麼串話？",
+      "prerequisites": [
+        "m07-l03"
+      ],
+      "outcomes": [
+        "LO08"
+      ],
+      "scope": "Bus session／provider session／task／attempt／turn；隔離與單一 writer",
+      "task": "畫出兩個互不相干的 session mapping",
+      "lab_id": "l08",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [
+        "PY07",
+        "CX02",
+        "CL05"
+      ],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m08-l02",
+      "module_id": "m08",
+      "number": "08.2",
+      "language": "zh-TW",
+      "title": "記錄應該存在哪？",
+      "prerequisites": [
+        "m08-l01"
+      ],
+      "outcomes": [
+        "LO08"
+      ],
+      "scope": "SQLite、交易、狀態快照、追加事件、artifact metadata",
+      "task": "同一交易保存狀態轉移與對應事件",
+      "lab_id": "l08",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [
+        "PY07",
+        "CX02",
+        "CL05"
+      ],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m08-l03",
+      "module_id": "m08",
+      "number": "08.3",
+      "language": "zh-TW",
+      "title": "回覆沒收到，可以重做嗎？",
+      "prerequisites": [
+        "m08-l02"
+      ],
+      "outcomes": [
+        "LO08"
+      ],
+      "scope": "Deduplication、idempotency、lease、at-least-once、未知副作用",
+      "task": "在「做完但確認前」崩潰，決定重試或人工確認",
+      "lab_id": "l08",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [
+        "PY07",
+        "CX02",
+        "CL05"
+      ],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m09-l01",
+      "module_id": "m09",
+      "number": "09.1",
+      "language": "zh-TW",
+      "title": "Host、client、server 分別是誰？",
+      "prerequisites": [
+        "m08-l03"
+      ],
+      "outcomes": [
+        "LO09"
+      ],
+      "scope": "工具／資料能力與責任；MCP 不等於排程器",
+      "task": "畫出 Agent host → MCP client → server → 受限資料",
+      "lab_id": "l09",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [
+        "MCP01",
+        "MCP02",
+        "MCP03",
+        "MCP04",
+        "MCP05",
+        "MCP06"
+      ],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m09-l02",
+      "module_id": "m09",
+      "number": "09.2",
+      "language": "zh-TW",
+      "title": "跑通一個唯讀 MCP server",
+      "prerequisites": [
+        "m09-l01"
+      ],
+      "outcomes": [
+        "LO09"
+      ],
+      "scope": "版本探索、工具與資源、stdio；stdout 不放一般 log",
+      "task": "列出允許工具，讀取 fixture 資料，保存協定 trace",
+      "lab_id": "l09",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [
+        "MCP01",
+        "MCP02",
+        "MCP03",
+        "MCP04",
+        "MCP05",
+        "MCP06"
+      ],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m09-l03",
+      "module_id": "m09",
+      "number": "09.3",
+      "language": "zh-TW",
+      "title": "工具可以信任嗎？",
+      "prerequisites": [
+        "m09-l02"
+      ],
+      "outcomes": [
+        "LO09"
+      ],
+      "scope": "參數驗證、路徑範圍、超時、輸出中的惡意指令",
+      "task": "拒絕越界路徑與未授權能力",
+      "lab_id": "l09",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [
+        "MCP01",
+        "MCP02",
+        "MCP03",
+        "MCP04",
+        "MCP05",
+        "MCP06"
+      ],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m10-l01",
+      "module_id": "m10",
+      "number": "10.1",
+      "language": "zh-TW",
+      "title": "ACP：Client 如何與 Coding Agent 互動？",
+      "prerequisites": [
+        "m09-l03"
+      ],
+      "outcomes": [
+        "LO10"
+      ],
+      "scope": "Agent Client Protocol v1；initialize、session、prompt、update、cancel；可選 load 能力",
+      "task": "讀取一段 client／agent stdio trace",
+      "lab_id": "l10",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [
+        "ACP01",
+        "ACP02",
+        "ACP03",
+        "ACP04",
+        "ACP05",
+        "A2A01",
+        "A2A02",
+        "NAME01"
+      ],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m10-l02",
+      "module_id": "m10",
+      "number": "10.2",
+      "language": "zh-TW",
+      "title": "A2A：獨立 Agent 如何交換任務？",
+      "prerequisites": [
+        "m10-l01"
+      ],
+      "outcomes": [
+        "LO10"
+      ],
+      "scope": "A2A 1.0.0；Agent Card、Task、Message、Part、Artifact、能力與任務生命週期",
+      "task": "比較一個工具呼叫與一項持續進行的 Agent task",
+      "lab_id": "l10",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [
+        "ACP01",
+        "ACP02",
+        "ACP03",
+        "ACP04",
+        "ACP05",
+        "A2A01",
+        "A2A02",
+        "NAME01"
+      ],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m10-l03",
+      "module_id": "m10",
+      "number": "10.3",
+      "language": "zh-TW",
+      "title": "轉接可以做到多少？",
+      "prerequisites": [
+        "m10-l02"
+      ],
+      "outcomes": [
+        "LO10"
+      ],
+      "scope": "Gateway mapping、版本／能力協商、取消與錯誤語意差異",
+      "task": "實作一種最小教學 gateway，另一種做映射練習",
+      "lab_id": "l10",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [
+        "ACP01",
+        "ACP02",
+        "ACP03",
+        "ACP04",
+        "ACP05",
+        "A2A01",
+        "A2A02",
+        "NAME01"
+      ],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m11-l01",
+      "module_id": "m11",
+      "number": "11.1",
+      "language": "zh-TW",
+      "title": "誰決定下一步？",
+      "prerequisites": [
+        "m10-l03"
+      ],
+      "outcomes": [
+        "LO11"
+      ],
+      "scope": "固定狀態機、DAG、角色與具體輸入輸出",
+      "task": "先寫規則式 planner，再評估是否需要模型 planner",
+      "lab_id": "l11",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m11-l02",
+      "module_id": "m11",
+      "number": "11.2",
+      "language": "zh-TW",
+      "title": "Worker 與 Reviewer 意見不同怎麼辦？",
+      "prerequisites": [
+        "m11-l01"
+      ],
+      "outcomes": [
+        "LO11"
+      ],
+      "scope": "獨立審查、客觀驗證、可執行回饋、修正上限",
+      "task": "一次工作 → 一次審查 → 必要修正 → 測試",
+      "lab_id": "l11",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m11-l03",
+      "module_id": "m11",
+      "number": "11.3",
+      "language": "zh-TW",
+      "title": "如何避免互相覆寫與無限花費？",
+      "prerequisites": [
+        "m11-l02"
+      ],
+      "outcomes": [
+        "LO11"
+      ],
+      "scope": "每 task 工作副本、artifact、人工閘門、總預算、循環偵測",
+      "task": "用 patch 交付變更，不讓兩個 writer 改同一份工作樹",
+      "lab_id": "l11",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m12-l01",
+      "module_id": "m12",
+      "number": "12.1",
+      "language": "zh-TW",
+      "title": "把零件組成一條任務路徑",
+      "prerequisites": [
+        "m11-l03"
+      ],
+      "outcomes": [
+        "LO12"
+      ],
+      "scope": "組態、啟動順序、health check、離線與真實模式",
+      "task": "用一個命令或清楚步驟啟動三個邏輯角色",
+      "lab_id": "l12",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m12-l02",
+      "module_id": "m12",
+      "number": "12.2",
+      "language": "zh-TW",
+      "title": "正常能跑，壞掉呢？",
+      "prerequisites": [
+        "m12-l01"
+      ],
+      "outcomes": [
+        "LO12"
+      ],
+      "scope": "可重現故障、事件追蹤、恢復與限制",
+      "task": "執行指定 fault suite，解釋每次結果",
+      "lab_id": "l12",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    },
+    {
+      "id": "m12-l03",
+      "module_id": "m12",
+      "number": "12.3",
+      "language": "zh-TW",
+      "title": "如何讓別人相信並接手？",
+      "prerequisites": [
+        "m12-l02"
+      ],
+      "outcomes": [
+        "LO12"
+      ],
+      "scope": "架構說明、操作示範、實測環境、限制與設計取捨",
+      "task": "完成五分鐘展示與一頁工程回顧",
+      "lab_id": "l12",
+      "status": "planned",
+      "execution_mode": null,
+      "sources": [],
+      "code_revision": null,
+      "source_checked_at": null,
+      "code_tested_at": null,
+      "verified_environments": [],
+      "protocol_versions": []
+    }
+  ],
+  "sources": [
+    {
+      "id": "PY01",
+      "title": "venv",
+      "url": "https://docs.python.org/3.13/library/venv.html",
+      "focus": "P02 環境",
+      "revision": "3.13",
+      "source_checked_at": "2026-11-24"
+    },
+    {
+      "id": "PY02",
+      "title": "subprocess",
+      "url": "https://docs.python.org/3.13/library/subprocess.html",
+      "focus": "M01 程序／Pipe",
+      "revision": "3.13",
+      "source_checked_at": "2026-11-24"
+    },
+    {
+      "id": "PY03",
+      "title": "Socket Programming HOWTO",
+      "url": "https://docs.python.org/3.13/howto/sockets.html",
+      "focus": "M02 byte stream／framing",
+      "revision": "3.13",
+      "source_checked_at": null
+    },
+    {
+      "id": "PY04",
+      "title": "asyncio Streams",
+      "url": "https://docs.python.org/3.13/library/asyncio-stream.html",
+      "focus": "M05 reader／writer",
+      "revision": "3.13",
+      "source_checked_at": null
+    },
+    {
+      "id": "PY05",
+      "title": "Coroutines and tasks",
+      "url": "https://docs.python.org/3.13/library/asyncio-task.html",
+      "focus": "M05 task／取消／timeout",
+      "revision": "3.13",
+      "source_checked_at": null
+    },
+    {
+      "id": "PY06",
+      "title": "asyncio Subprocesses",
+      "url": "https://docs.python.org/3.13/library/asyncio-subprocess.html",
+      "focus": "M07 CLI 管理",
+      "revision": "3.13",
+      "source_checked_at": null
+    },
+    {
+      "id": "PY07",
+      "title": "sqlite3",
+      "url": "https://docs.python.org/3.13/library/sqlite3.html",
+      "focus": "M08 交易與儲存",
+      "revision": "3.13",
+      "source_checked_at": null
+    },
+    {
+      "id": "PY08",
+      "title": "os — Process parameters",
+      "url": "https://docs.python.org/3.13/library/os.html#os.getpid",
+      "focus": "用 getpid() 與 getppid() 核對父子關係",
+      "revision": "3.13",
+      "source_checked_at": "2026-11-24"
+    },
+    {
+      "id": "PY09",
+      "title": "sys — Standard streams",
+      "url": "https://docs.python.org/3.13/library/sys.html#sys.stdin",
+      "focus": "比對互動終端與 Pipe 的緩衝行為",
+      "revision": "3.13",
+      "source_checked_at": "2026-11-24"
+    },
+    {
+      "id": "PY10",
+      "title": "Built-in functions — print",
+      "url": "https://docs.python.org/3.13/library/functions.html#print",
+      "focus": "找出 file 及 flush 兩個參數的效果",
+      "revision": "3.13",
+      "source_checked_at": "2026-11-24"
+    },
+    {
+      "id": "RPC01",
+      "title": "JSON-RPC 2.0 Specification",
+      "url": "https://www.jsonrpc.org/specification",
+      "focus": "M03 request／notification／error／batch",
+      "revision": "2.0",
+      "source_checked_at": null
+    },
+    {
+      "id": "OL01",
+      "title": "Ollama API Introduction",
+      "url": "https://docs.ollama.com/api/introduction",
+      "focus": "端點與服務界線",
+      "revision": null,
+      "source_checked_at": null
+    },
+    {
+      "id": "OL02",
+      "title": "Chat API",
+      "url": "https://docs.ollama.com/api/chat",
+      "focus": "messages／stream／keep_alive",
+      "revision": null,
+      "source_checked_at": null
+    },
+    {
+      "id": "OL03",
+      "title": "Streaming",
+      "url": "https://docs.ollama.com/capabilities/streaming",
+      "focus": "REST／SDK 串流",
+      "revision": null,
+      "source_checked_at": null
+    },
+    {
+      "id": "OL04",
+      "title": "Tool calling",
+      "url": "https://docs.ollama.com/capabilities/tool-calling",
+      "focus": "工具迴圈",
+      "revision": null,
+      "source_checked_at": null
+    },
+    {
+      "id": "CX01",
+      "title": "Codex Non-interactive mode",
+      "url": "https://learn.chatgpt.com/docs/non-interactive-mode",
+      "focus": "exec 接入",
+      "revision": null,
+      "source_checked_at": null
+    },
+    {
+      "id": "CX02",
+      "title": "Codex App Server",
+      "url": "https://learn.chatgpt.com/docs/app-server",
+      "focus": "stdio／thread／turn／approval",
+      "revision": null,
+      "source_checked_at": null
+    },
+    {
+      "id": "CL01",
+      "title": "Claude Code Headless",
+      "url": "https://code.claude.com/docs/en/headless",
+      "focus": "`claude -p`／JSON",
+      "revision": null,
+      "source_checked_at": null
+    },
+    {
+      "id": "CL02",
+      "title": "CLI reference",
+      "url": "https://code.claude.com/docs/en/cli-reference",
+      "focus": "輸入／輸出與執行參數",
+      "revision": null,
+      "source_checked_at": null
+    },
+    {
+      "id": "CL03",
+      "title": "Agent SDK overview",
+      "url": "https://code.claude.com/docs/en/agent-sdk/overview",
+      "focus": "Agent loop／認證條件",
+      "revision": null,
+      "source_checked_at": null
+    },
+    {
+      "id": "CL04",
+      "title": "SDK quickstart",
+      "url": "https://code.claude.com/docs/en/agent-sdk/quickstart",
+      "focus": "Python SDK 設定",
+      "revision": null,
+      "source_checked_at": null
+    },
+    {
+      "id": "CL05",
+      "title": "SDK sessions",
+      "url": "https://code.claude.com/docs/en/agent-sdk/sessions",
+      "focus": "resume／fork 與紀錄",
+      "revision": null,
+      "source_checked_at": null
+    },
+    {
+      "id": "CL06",
+      "title": "Streaming vs single mode",
+      "url": "https://code.claude.com/docs/en/agent-sdk/streaming-vs-single-mode",
+      "focus": "多輪與串流輸入",
+      "revision": null,
+      "source_checked_at": null
+    },
+    {
+      "id": "CL07",
+      "title": "SDK permissions",
+      "url": "https://code.claude.com/docs/en/agent-sdk/permissions",
+      "focus": "工具與權限邊界",
+      "revision": null,
+      "source_checked_at": null
+    },
+    {
+      "id": "MCP01",
+      "title": "MCP Specification 2026-07-28",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28",
+      "focus": "固定 revision",
+      "revision": "2026-07-28（規格預定）",
+      "source_checked_at": null
+    },
+    {
+      "id": "MCP02",
+      "title": "stdio",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/stdio",
+      "focus": "本地程序傳輸",
+      "revision": "2026-07-28（規格預定）",
+      "source_checked_at": null
+    },
+    {
+      "id": "MCP03",
+      "title": "Streamable HTTP",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/streamable-http",
+      "focus": "選讀遠端傳輸與安全",
+      "revision": "2026-07-28（規格預定）",
+      "source_checked_at": null
+    },
+    {
+      "id": "MCP04",
+      "title": "Local server security",
+      "url": "https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/local-server-security",
+      "focus": "本地 server 信任與隔離",
+      "revision": "2026-07-28（規格預定）",
+      "source_checked_at": null
+    },
+    {
+      "id": "MCP05",
+      "title": "Python SDK v2.0.0 release",
+      "url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v2.0.0",
+      "focus": "SDK／revision 對應與缺口",
+      "revision": null,
+      "source_checked_at": null
+    },
+    {
+      "id": "MCP06",
+      "title": "Python SDK Protocol versions",
+      "url": "https://py.sdk.modelcontextprotocol.io/protocol-versions/",
+      "focus": "探索、fallback 與固定版本",
+      "revision": null,
+      "source_checked_at": null
+    },
+    {
+      "id": "ACP01",
+      "title": "ACP Introduction",
+      "url": "https://agentclientprotocol.com/get-started/introduction",
+      "focus": "Client／agent 定位",
+      "revision": "v1 教材基準",
+      "source_checked_at": null
+    },
+    {
+      "id": "ACP02",
+      "title": "ACP v1 Overview",
+      "url": "https://agentclientprotocol.com/protocol/v1/overview",
+      "focus": "主線方法與生命週期",
+      "revision": "v1 教材基準",
+      "source_checked_at": null
+    },
+    {
+      "id": "ACP03",
+      "title": "ACP v1 Transports",
+      "url": "https://agentclientprotocol.com/protocol/v1/transports",
+      "focus": "stdio／JSON-RPC",
+      "revision": "v1 教材基準",
+      "source_checked_at": null
+    },
+    {
+      "id": "ACP04",
+      "title": "ACP v1 Session setup",
+      "url": "https://agentclientprotocol.com/protocol/v1/session-setup",
+      "focus": "new／load 與能力",
+      "revision": "v1 教材基準",
+      "source_checked_at": null
+    },
+    {
+      "id": "ACP05",
+      "title": "ACP Agents",
+      "url": "https://agentclientprotocol.com/get-started/agents",
+      "focus": "接入名錄與 wrapper 區分",
+      "revision": "v1 教材基準",
+      "source_checked_at": null
+    },
+    {
+      "id": "A2A01",
+      "title": "A2A 1.0.0 Specification",
+      "url": "https://a2a-protocol.org/v1.0.0/specification/",
+      "focus": "Card／Task／Artifact／binding",
+      "revision": "1.0.0 教材基準",
+      "source_checked_at": null
+    },
+    {
+      "id": "A2A02",
+      "title": "A2A and MCP",
+      "url": "https://a2a-protocol.org/v1.0.0/topics/a2a-and-mcp/",
+      "focus": "兩種協定的互補",
+      "revision": "1.0.0 教材基準",
+      "source_checked_at": null
+    },
+    {
+      "id": "NAME01",
+      "title": "Agent Communication Protocol",
+      "url": "https://agentcommunicationprotocol.dev/introduction/welcome",
+      "focus": "ACP 同縮寫辨識",
+      "revision": null,
+      "source_checked_at": null
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "a",
+      "title": "會傳話",
+      "modules": [
+        "m01",
+        "m02",
+        "m03"
+      ],
+      "evidence": "程序圖、RPC trace、分段測試",
+      "criteria": "無模型時仍能正確通訊與分類錯誤",
+      "phase": "W2"
+    },
+    {
+      "id": "b",
+      "title": "會協調等待",
+      "modules": [
+        "m04",
+        "m05"
+      ],
+      "evidence": "三個 client、慢 worker、queue full／cancel 記錄",
+      "criteria": "一個慢工作能與其他請求並行，佇列與關閉可控",
+      "phase": "W2"
+    },
+    {
+      "id": "c",
+      "title": "會管理接入與上下文",
+      "modules": [
+        "m06",
+        "m07",
+        "m08"
+      ],
+      "evidence": "Adapter 契約、兩個 Session、重啟前後的行為",
+      "criteria": "可替換 provider，能說明隔離與復原",
+      "phase": "W3"
+    },
+    {
+      "id": "d",
+      "title": "會選協定",
+      "modules": [
+        "m09",
+        "m10"
+      ],
+      "evidence": "MCP trace、ACP／A2A 映射與 gateway",
+      "criteria": "根據互動關係選接口，能說明版本與能力限制",
+      "phase": "W4"
+    },
+    {
+      "id": "e",
+      "title": "會交付系統",
+      "modules": [
+        "m11",
+        "m12"
+      ],
+      "evidence": "有界工作流程、故障測試、乾淨環境重現紀錄",
+      "criteria": "可停止、可驗證、可重現，並列出限制",
+      "phase": "W4"
+    }
+  ]
+}
